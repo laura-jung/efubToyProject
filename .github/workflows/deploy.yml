@@ -30,8 +30,8 @@ jobs:
 
       - name: make application.yml
         run: |
-          mkdir ./tweeterdemo/src/main/resources
-          cd ./tweeterdemo/src/main/resources
+          mkdir ./src/main/resources
+          cd ./src/main/resources
           touch ./application.yml
           echo "${{ secrets.APPLICATION_YML }}" > ./application.yml
 
