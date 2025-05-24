@@ -53,7 +53,7 @@ jobs:
             --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
             --ignore-hidden-files \
             --s3-location s3://efub-blog123/$GITHUB_SHA.zip \
-            --source ./tweeterdemo
+            --source ./
 
       - name: Deploy to AWS EC2 from S3
         run: |
