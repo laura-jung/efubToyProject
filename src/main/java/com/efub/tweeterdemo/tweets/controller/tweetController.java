@@ -2,6 +2,7 @@ package com.efub.tweeterdemo.tweets.controller;
 
 import com.efub.tweeterdemo.tweets.domain.Tweet;
 import com.efub.tweeterdemo.tweets.dto.request.TweetCreateRequest;
+import com.efub.tweeterdemo.tweets.dto.request.TweetDeleteRequest;
 import com.efub.tweeterdemo.tweets.dto.response.TweetCreateResponse;
 import com.efub.tweeterdemo.tweets.dto.response.TweetListResponse;
 import com.efub.tweeterdemo.tweets.dto.response.TweetResponse;
@@ -35,9 +36,8 @@ public class tweetController {
     //트윗 삭제
     @DeleteMapping("/{tweetId}")
     public ResponseEntity<String> deleteTweet(@PathVariable("tweetId") Long tweetId,
-                                              @RequestHeader("AUTH_ID") Long userId,
-                                              @RequestHeader("AUTH_PASSWORD") String password){
-        tweetService.deleteTweet(tweetId, userId, password);
+                                              @RequestBody TweetDeleteRequest request){
+        tweetService.deleteTweet(tweetId, request.getUserId(), request.getPassword());
         return ResponseEntity.ok("트윗이 삭제되었습니다.");
     }
 
