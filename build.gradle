@@ -41,3 +41,7 @@ tasks.named('test') {
 jar {
 	enabled = true
 }
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+}
